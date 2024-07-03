@@ -60,7 +60,7 @@ const resolvers = {
           eq(issues.status, status),
         )
 
-        andFilters.push(or(...statusFilters))
+        andFilters.push(or(...statusFilters)!)
       }
 
       const data = await db.query.issues.findMany({

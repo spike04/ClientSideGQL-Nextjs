@@ -1,5 +1,5 @@
 import { startServerAndCreateNextHandler } from '@as-integrations/next'
-import { ApolloServer } from '@apollo/server'
+import { ApolloServer, ApolloServerPlugin, BaseContext } from '@apollo/server'
 import {
   ApolloServerPluginLandingPageLocalDefault,
   ApolloServerPluginLandingPageProductionDefault,
@@ -9,7 +9,7 @@ import typeDefs from './schema'
 import resolvers from './resolvers'
 import { getUserFromToken } from '@/utils/auth'
 
-let plugins = []
+let plugins: ApolloServerPlugin<BaseContext>[] = []
 if (process.env.NODE_ENV === 'production') {
   plugins = [
     ApolloServerPluginLandingPageProductionDefault({

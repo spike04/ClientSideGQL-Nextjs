@@ -39,7 +39,7 @@ export default function Status({
         className="p-3"
         selectionMode="single"
         selectedKeys={[status]}
-        onAction={onAction}
+        onAction={(value) => onAction(value as string)}
         itemClasses={{
           base: [
             'rounded-md',
